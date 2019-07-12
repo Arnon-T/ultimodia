@@ -1,0 +1,26 @@
+package questoes;
+
+import br.com.util.Teclado;
+
+public class Questao14 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[] nome = new String[15];
+		int[] nota1 = new int [15];
+		int[] nota2 = new int [15];
+		
+		for (int i = 0; i < nota2.length; i++) {
+			nome[i] = Teclado.lerTexto("Digite um nome: ");
+			nota1[i] = Teclado.lerInt("Digite a nota 1: ");
+			nota2[i] = Teclado.lerInt("Digite a nota 2: ");
+		}
+		for (int i = 0; i < nota2.length; i++) {
+			int media = 0;
+			media = (nota1[i] + nota2[i])/2;
+	//		System.out.println("nome:" + );
+		}
+		
+	}
+
+}

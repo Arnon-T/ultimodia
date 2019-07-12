@@ -1,0 +1,20 @@
+package testes;
+
+public class testes {
+
+	public static void main(String[] args) {
+
+
+		
+	}
+
+}
+
+public class metodo{
+
+public void imprimeArray(int[] numeros){
+	for(int numeros1 : numeros) {
+		System.out.println(numeros1);
+	}
+}
+}

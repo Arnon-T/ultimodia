@@ -1,0 +1,13 @@
+package questoes;
+
+public class Questao11 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[10] matriz = new int[];
+		for (int i = 0; i < args.length; i++) {
+			
+		}
+	}
+
+}

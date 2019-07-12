@@ -1,0 +1,22 @@
+package testes;
+
+public class Organizar {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String nomes[] = {"Bruno", "Yasmin", "Arnon", "Carlos"};
+		for(String n : nomes) {
+			System.out.println(nomes);
+		}
+		
+		Arrays.sort(nomes);
+		
+		for(String n : nomes) {
+			System.out.println(nomes);
+		}
+		
+		
+		
+	}
+
+}

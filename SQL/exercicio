@@ -1,0 +1,188 @@
+--1
+use exercicio;
+create table aluno(
+	nome_aluno varchar(50),
+    nascimento_aluno date,
+    sobrenome_aluno varchar(100),
+    endereco_aluno varchar(255)
+);
+--2
+use exercicio;
+drop table aluno;
+--3
+use exercicio;
+create table aluno(
+	nome_aluno varchar(50) not null,
+    sobrenome_aluno varchar(100) not null,
+    nome_pai_aluno varchar(255),
+    nome_mae_aluno varchar(255),
+    endereco_aluno varchar(255),
+    numero_casa_aluno int(5),
+    cidade_aluno varchar(50),
+    estado_aluno varchar(2)
+);
+--4
+use exercicio;
+create table instituicao_ensino(
+	nome_instituicao_ensino varchar(100) not null,
+    endereco_instituicao_ensino varchar(255) not null,
+    razao_social_instituicao_ensino varchar(255) not null,
+    telefone_instituicao_ensino int(12) not null,
+    observaca_instituicao_ensino varchar(500)
+);
+--5 cuida que subi ela com um O a menos. (:
+use exercicio;
+alter table instituicao_ensino
+drop column observaca_instituicao_ensino;
+
+--6
+use exercicio;
+alter table instituicao_ensino
+add column reitor_instituicao_ensino varchar(255),
+add column vice_reitor_instituicao_ensino varchar(255)
+--7
+use exercicio;
+alter table instituicao_ensino
+add column inauguracao_instituicao_ensino timestamp not null;
+--8
+use exercicio;
+alter table instituicao_ensino
+	drop column reitor_instituicao_ensino,    
+	drop column vice_reitor_instituicao_ensino
+--9
+use exercicio;
+create table professor(
+	nome_professor varchar(50) not null,
+    titularidade_professor varchar(50) not null,
+    endereco_professor varchar (255) not null
+);
+--10
+use exercicio;
+alter table professor
+	drop column endereco_professor,
+    add column cidade_reside_professor varchar(50) not null,
+    add column cidade_nasceu_professor varchar(50) not null,
+    add column salario_professor decimal(9,2) not null
+--11
+use exercicio;
+alter table professor
+modify salario_professor decimal(8,2);
+--12
+use exercicio;
+alter table instituicao_ensino rename faculdade;
+--13
+use exercicio;
+create table departamento(
+	nome_departamento varchar(50) not null,
+    nome_presidente_departamento varchar(50) not null,
+    localizacao_departamento varchar(255) not null,
+    orcamento_departamento decimal(9,2)
+);
+--14
+use exercicio;
+alter table departamento rename centro;
+--15
+use exercicio;
+create table livro(
+	nome_livro varchar(100),
+    lancamento_livro int(4),
+    autor_livro varchar(255),
+    paginas_livro int(5)
+);
+--15.1
+use exercicio;
+insert into livro (nome_livro, lancamento_livro, autor_livro, paginas_livro) values ('Dom Quixote',1605,'Miguel Cervantes',378);
+insert into livro (nome_livro, lancamento_livro, autor_livro, paginas_livro) values ('Guerra e Paz',1869,'Liev Tolstói',652);
+insert into livro (nome_livro, lancamento_livro, autor_livro, paginas_livro) values ('A Montanha Mágica',1924,'Thomas Mann',847);
+insert into livro (nome_livro, lancamento_livro, autor_livro, paginas_livro) values ('Ulisses',1922,'James Joyce',65);
+insert into livro (nome_livro, lancamento_livro, autor_livro, paginas_livro) values ('Cem Anos de Solidão',1967,'Gabriel García Márquez',987);
+insert into livro (nome_livro, lancamento_livro, autor_livro, paginas_livro) values ('A Divina Comédia',1321,'Dante Alighieri',587);
+insert into livro (nome_livro, lancamento_livro, autor_livro, paginas_livro) values ('Em Busca do Tempo Perdido',1913,'Marcel Proust', 872);
+insert into livro (nome_livro, lancamento_livro, autor_livro, paginas_livro) values ('O Som e a Fúria',1929,'William Faulkner',254);
+--15.a
+use exercicio;
+select * from livro
+where lancamento_livro > 1900;
+--15.b
+use exercicio;
+select * from livro
+where lancamento_livro < 1605
+--15.c
+use exercicio;
+select * from livro
+where lancamento_livro >= 1967;
+--15.d
+use exercicio;
+select * from livro
+where autor_livro = 'Liev Tolstói';
+--15.e
+use exercicio;
+select * from livro
+where autor_livro = 'James Joyce'
+or autor_livro = 'Marcel Proust';
+--15.f
+use exercicio;
+select * from livro
+where paginas_livro between 600 and 1000;
+--15.g
+use exercicio;
+select * from livro
+where paginas_livro > 367 or lancamento_livro = 1605;
+--15.h
+use exercicio;
+select * from livro
+where nome_livro = 'Ulisses' and paginas_livro >= 65;
+--15.i
+use exercicio;
+select nome_livro, lancamento_livro from livro;
+--15.j
+use exercicio;
+select autor_livro from livro
+where paginas_livro > 400;
+--15.k
+use exercicio;
+select nome_livro from livro
+where nome_livro like '%Anos%' or autor_livro like '%Liev%';
+--15.l
+use exercicio;
+select nome_livro from livro
+where LOWER(autor_livro) like '%w%';
+--15.m
+use exercicio;
+select nome_livro from livro
+where LOWER(nome_livro) like 'g%';
+--15.n
+use exercicio;
+select concat (nome_livro, ' - ', autor_livro,  ' - ', lancamento_livro) as 'Livro - Autor - Ano' from livro;
+--15.o
+use exercicio;
+select nome_livro as 'Nome', (2000 - lancamento_livro) as 'Idade' from livro;
+--15.p
+use exercicio;
+select nome_livro as 'Nome<NOME>', lancamento_livro as 'Ano de lançamento' from livro
+where (2019 - lancamento_livro) >= 60
+and (2019 - lancamento_livro) <= 300;
+--15.q
+use exercicio;
+insert into livro (nome_livro, lancamento_livro, autor_livro, paginas_livro) values ('Chapeuzinho vermelho', 1899, 'Miguel de Cervantes', 12);
+insert into livro (nome_livro, lancamento_livro, autor_livro, paginas_livro) values ('Dona florinda', 1968, 'Miguel de Cervantes', 59);
+--15.r
+use exercicio;
+select nome_livro, autor_livro, lancamento_livro from livro
+order by autor_livro, lancamento_livro desc;
+--15.s
+use exercicio;
+alter table livro
+add column volume_livro int(2);
+--15.t
+use exercicio;
+update livro
+set volume_livro = 1
+where volume_livro IS NULL;
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+package testes;
+
+public class testes {
+
+	public static void main(String[] args) {
+	
+		int[] numeros = new int []{22,33};
+		System.out.println(numeros[0] + " " + numeros[1]);
+		
+		
+	}
+
+}

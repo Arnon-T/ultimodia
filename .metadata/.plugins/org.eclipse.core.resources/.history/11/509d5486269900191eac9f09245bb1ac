@@ -1,0 +1,19 @@
+package questoes;
+
+import br.com.util.Teclado;
+
+public class Questao06 {
+
+	public static void main(String[] args) {
+		int base = Teclado.lerInt("Digite a base da potência.");
+		int potencia = Teclado.lerInt("Digite o expoente da potência.");
+				
+		for (int i = 0; i <= potencia; i++) {
+			int resultado = 0;
+			System.out.println(base);
+			resultado *= base;			
+		}
+
+	}
+
+}
